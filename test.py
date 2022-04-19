@@ -8,7 +8,7 @@ def get_kpis(selected_date_from, selected_date_to):
 	# - total revenue
 	# - cancellation (canceled sale orders / total amount of sale orders)
 	# The variable product_db contains a list of all products, where each item is a dictionary with the product's id, full price and gross cost.
-	# And sale_order_db contains a list of sale orders, where each item is a dictionary with the sale's id, customer's id, a list of purchased products, sale's date and cancelation's date (if there was any).
+	# And sale_order_db contains a list of sale orders, where each item is a dictionary with the sale's id, customer's id, a list of purchased products, sale's date and is_canceled boolean value.
 
 	# A little help:
 	selected_date_from = datetime.strptime(selected_date_from, '%Y-%m-%d')
