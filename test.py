@@ -4,7 +4,7 @@ from sale_order_db import sale_order_db
 def get_kpis(selected_date_from, selected_date_to):
 	# Your goal is to develop a function that returns the following kpis between two given dates as inputs:
 	# - total revenue
-	# - average ticket (average value of a sale order)
+	# - average ticket (average amount of revenue per sale)
 	# - margin (total gross cost / total revenue)
 	# The variable product_db contains a list of all products, where each item is a dictionary with the product's id, full price and gross cost.
 	# And sale_order_db contains a list of sale orders, where each item is a dictionary with the sale's id, customer's id, a list of purchased products, sale's date and cancelation's date (if there was any).
