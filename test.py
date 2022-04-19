@@ -6,14 +6,17 @@ def get_kpis(selected_date_from, selected_date_to):
 	# - total revenue
 	# - average ticket (average value of a sale order)
 	# - margin (total gross cost / total revenue)
-	
+	# The variable product_db contains a list of all products, where each item is a dictionary with the product's id, full price and gross cost.
+	# And sale_order_db contains a list of sale orders, where each item is a dictionary with the sale's id, customer's id, a list of purchased products, sale's date and cancelation's date (if there was any).
+
+	# Return the kpi values following the variable format below:
 	kpis = {
 		'total_revenue': None,
 		'average_ticket': None,
 		'margin': None
 	}
 
-	# write your solution here
+	# Write your solution here
 
 	return kpis
 
