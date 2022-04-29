@@ -26,5 +26,6 @@ def get_kpis(selected_date_from, selected_date_to):
 
 kpis = get_kpis('2021-07-01', '2021-07-08')
 print(kpis)
+
 # To run this file just type the command below in the console:
 # python test.py
