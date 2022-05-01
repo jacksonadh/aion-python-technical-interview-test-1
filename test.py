@@ -15,7 +15,10 @@ def get_kpis(selected_date_from, selected_date_to):
 	selected_date_to = datetime.strptime(selected_date_to, '%Y-%m-%d')
 
 	# Write your solution here
-
+	def total_revenue():
+		for sale in sale_order_db:
+			total_sale = sale.get("purchased_products")
+			print(total_sale)
 	# Return the kpi values following the variable format below:
 	kpis = {
 		'total_revenue': None,
