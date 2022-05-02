@@ -16,11 +16,15 @@ def get_kpis(selected_date_from, selected_date_to):
 
 	# Write your solution here
 	def total_revenue():
+		total_sale = []
+		total_product = []
 		for sale in sale_order_db:
-			total_sale = sale.get("purchased_products")
+			total_sale = total_sale + sale.get("purchased_products")
+			print("total sale", total_sale)
 			for product in product_db:
-				total_product = product.get("product_id")
-				print("este é o total_sale: ", total_sale)
+				total_product = product.get("full_price")
+				
+				#print("este é o total_sale: ", total_sale)
 				print("este é o total_product: ", total_product)
 				
 
