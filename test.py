@@ -16,49 +16,38 @@ def get_kpis(selected_date_from, selected_date_to):
 
 	# Write your solution here
 
-	# [
-	# {
-  #      "sale_order_id": 420351,
-  #     "customer_id": 343556,
-  #      "purchased_products": [188024, 188047, 188048, 188023],
-  #      "sale_order_purchased_at": datetime(2021, 6, 30, 0, 0),
-  #      "is_canceled": False,
-  #  },]
-
-	#product_db = [
-  #  {"product_id": 188086, "full_price": 69.0, "gross_cost": 33.15},
-
-
 # primeiro acessar o vetor de sale_order_db - Ok
 # segundo para cada item do vetor de sale_order_db vericar qual tipo de carrinho (cancelado ou não) - Ok
 # terceiro acessar o vetor de purchased_products
 # quarto checar se cada item de purchased_products existe em product_db
 # quinta se o item existir somar o valor de full_price (canelado ou não)
-# 
-
 
 	def total_revenue():
 		total_canceled = 0
 		total_not_canceled = 0
+		canceled_sales = 0
 		for sale in sale_order_db:
-			if sale["is_canceled"] == True:
-				for i in sale["purchased_products"]:
-					for product in product_db:
-						if i == product["product_id"]:
-							total_canceled = total_canceled + product["full_price"]
-							print("total_canceled: ", total_canceled) 
-			else:
-				for i in sale["purchased_products"]:
-					for product in product_db:
-						if i == product["product_id"]:
-							total_not_canceled = total_not_canceled + product["full_price"]
-							print("total_not_canceled: " ,total_not_canceled) 
+			if selected_date_from <= sale["sale_order_purchased_at"] <= selected_date_to:
+				if sale["is_canceled"] == True:
+					canceled_sales+=1
+					for i in sale["purchased_products"]:
+						for product in product_db:
+							if i == product["product_id"]:
+								total_canceled = total_canceled + product["full_price"]	
+				else:
+					for i in sale["purchased_products"]:
+						for product in product_db:
+							if i == product["product_id"]:
+								total_not_canceled = total_not_canceled + product["full_price"]
+			
+		return total_canceled + total_not_canceled, canceled_sales/len(sale_order_db)
 
+	total_sum, canceled_ratio = total_revenue()
 
 	# Return the kpi values following the variable format below:
 	kpis = {
-		'total_revenue': total_revenue(),
-		'cancellation': total_canceled(),
+		'total_revenue': format(total_sum,".3f"),
+		'cancellation': format(canceled_ratio,".3f"),
 	}
 
 	return kpis
